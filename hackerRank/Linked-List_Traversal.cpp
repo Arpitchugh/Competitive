@@ -17,7 +17,7 @@ void printList(Node *n)
         cout << n->data << " ";
         n = n->next;
     }
-}`
+}
 
 // Driver code
 int main()
