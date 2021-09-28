@@ -1,3 +1,5 @@
+// Starting with a 1-indexed array of zeros and a list of operations, for each operation add a value to each the array element between two given indices, inclusive. Once all operations have been performed, return the maximum value in the array.
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -6,27 +8,40 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
-vector<int> dynamicArray(int n, vector<vector<int>> queries)
+/*
+ * Complete the 'arrayManipulation' function below.
+ *
+ * The function is expected to return a LONG_INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER n
+ *  2. 2D_INTEGER_ARRAY queries
+ */
+
+long arrayManipulation(int n, vector<vector<int>> queries)
 {
-    vector<vector<int>> seq(n); // List of list which stores int type.
-    int last = 0;
-    int len = queries.size();
-    vector<int> ans;
-    for (int i = 0; i < len; i++)
+    vector<long int> A(n, 0); // sum or difference of K's value in the vector
+    long len = queries.size();
+    for (long i = 0; i < len; i++)
     {
-        int k = (last ^ queries[i][1]) % n;
-        if (queries[i][0] == 1)
+        //  step 1 as described above
+        A[(queries[i][0]) - 1] = A[(queries[i][0]) - 1] + queries[i][2];
+        if (queries[i][1] < n) // checking for segmentation fault
         {
-            seq[k].push_back(queries[i][2]);
-        }
-        else if (queries[i][0] == 2)
-        {
-            int ind = queries[i][2] % (seq[k].size());
-            last = seq[k][ind];
-            ans.push_back(last);
+            // step 2 as described above
+            A[(queries[i][1])] = A[(queries[i][1])] - queries[i][2];
         }
     }
-    return ans;
+    long sum = 0, x = 0;
+    // Step 3: Calculating maximum prefix array sum
+    for (long i = 0; i < n; i++)
+    {
+        x = x + A[i];
+        if (x > sum)
+        {
+            sum = x;
+        }
+    }
+    return sum;
 }
 
 int main()
@@ -40,11 +55,11 @@ int main()
 
     int n = stoi(first_multiple_input[0]);
 
-    int q = stoi(first_multiple_input[1]);
+    int m = stoi(first_multiple_input[1]);
 
-    vector<vector<int>> queries(q);
+    vector<vector<int>> queries(m);
 
-    for (int i = 0; i < q; i++)
+    for (int i = 0; i < m; i++)
     {
         queries[i].resize(3);
 
@@ -61,19 +76,9 @@ int main()
         }
     }
 
-    vector<int> result = dynamicArray(n, queries);
+    long result = arrayManipulation(n, queries);
 
-    for (size_t i = 0; i < result.size(); i++)
-    {
-        fout << result[i];
-
-        if (i != result.size() - 1)
-        {
-            fout << "\n";
-        }
-    }
-
-    fout << "\n";
+    fout << result << "\n";
 
     fout.close();
 

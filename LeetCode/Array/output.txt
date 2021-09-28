@@ -1,2 +1,0 @@
-Enter your first name.
- Hello appy. It was nice to know your name!
