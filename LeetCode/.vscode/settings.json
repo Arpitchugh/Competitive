@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "java/Search/LinearSearch/src",
+        "java/Array/src"
+    ]
+}
