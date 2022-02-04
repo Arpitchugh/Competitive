@@ -1,2 +1,0 @@
-﻿Source1.obj : error LNK2005: main already defined in Source.obj
-C:\Competitive\CodingNinja\competitive\x64\Debug\competitive.exe : fatal error LNK1169: one or more multiply defined symbols found
