@@ -17,21 +17,21 @@ int getInteger(char c)
 }
 int romanToInt(string s)
 {
-   int n = s.size() , result = 0 , current , next , i = 0;
+   int n = s.size() , ans = 0 , current , next , i = 0;
    while(i < n)
    {
        if(i == n - 1)
        {
-           result += getInteger(s[i]);
-           return result;
+           ans += getInteger(s[i]);
+           return ans;
        }
        current = getInteger(s[i]) , next = getInteger(s[i + 1]);
        if(current >= next)
-           result += current , i++;
+           ans += current , i++;
        else
-           result += next - current , i += 2;
+           ans += next - current , i += 2;
    }
-   return result;
+   return ans;
 }
 int main()
 {
