@@ -6,8 +6,7 @@ using namespace std;
 // Function to find the
 // largest lexicographical
 // string with given constraints.
-string getLargestString(string s,
-                       ll k)
+string getLargestString(string s, ll k)
 {
 
    // vector containing frequency
@@ -15,9 +14,7 @@ string getLargestString(string s,
    vector<int> frequency_array(26, 0);
 
    // assigning frequency to
-   for (int i = 0;
-        i < s.length(); i++) {
-
+   for (int i = 0;i < s.length(); i++) {
        frequency_array[s[i] - 'a']++;
    }
 
