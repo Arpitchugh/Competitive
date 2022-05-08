@@ -10,10 +10,10 @@ using namespace std;
 
 
 int main() {
-  int array[] = {5,10 ,200};
+  int array[] = {500,10 ,200};
   int size = sizeof(array) / sizeof(array[0]);
   // Ayush approch
-  //
+
   // std::vector<int> elem = {0};
   // for (int i = 0; i < size; i++) {
   //   if(array[i]>elem.back()){
@@ -52,7 +52,7 @@ int main() {
       secondHighest = array[i];
     }
   }
-
+  
   cout << secondHighest << '\n';
 
 
