@@ -1,5 +1,2 @@
-﻿  PointerArithmetic.cpp
-  WorkingWithPointers.cpp
-  Generating Code...
-WorkingWithPointers.obj : error LNK2005: "void __cdecl pointerArithmetic(void)" (?pointerArithmetic@@YAXXZ) already defined in PointerArithmetic.obj
-C:\Competitive\pointer\pointers\x64\Debug\workingWithPointers.exe : fatal error LNK1169: one or more multiply defined symbols found
+﻿  WorkingWithPointers.cpp
+  workingWithPointers.vcxproj -> C:\Competitive\pointer\pointers\x64\Debug\workingWithPointers.exe

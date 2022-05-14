@@ -2,6 +2,10 @@
 using namespace std;
 
 
+bool isPresent(int *array, int size, int search){
+  for()
+}
+
 int main(int argc, char const *argv[]) {
 
   int array[] = {-1,2,4,5,6,1};
@@ -11,15 +15,7 @@ int main(int argc, char const *argv[]) {
     cout << array[i] << '\n';
   }
 
-  for(int j = 0;j < size;j++){
-    for (size_t k = 0; k < size; k++) {
-      if(j == array[k]){
-        ans.push_back(k);
-        break;
-      }
-    }
-    ans.push_back(-1);
-  }
+
 
   for (size_t i = 0; i < size; i++) {
     std::cout << endl;

@@ -18,8 +18,5 @@
     <ClCompile Include="WorkingWithPointers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PointerArithmetic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
