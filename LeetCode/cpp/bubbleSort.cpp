@@ -13,7 +13,7 @@ void swap(int* i, int* j) {
 void bubbleSort(int arr[], int n) {
     int i, j;
     bool swapped;
-    for (i = 0; i < n - 1; i++)
+    /* for (i = 0; i < n - 1; i++)
     {
         swapped = false;
         for (j = 0; j < n - i - 1; j++)
@@ -25,13 +25,24 @@ void bubbleSort(int arr[], int n) {
             }
             cout << arr[j] << " " << arr[j + 1] << endl;
         }
+      }
+    */
+    // recursice approch
+    if(n==1){ return;}
+
+    for(int i=0;i<n-1;i++){
+      if(arr[i]>arr[i+1]){
+        swap(&arr[i],&arr[i+1]);
+        swapped = true;
+      }
+    }
+    bubbleSort(arr, n-1);
 
         // IF no two elements were swapped
         // by inner loop, then break
         if (swapped == false)
-            break;
-    }
-    cout << endl;
+            return;
+
 }
 
 void print(int arr[], int n) {
