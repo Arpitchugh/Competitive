@@ -12,21 +12,20 @@ void swap(int* i, int* j) {
 
 void selectionSort(int arr[], int size) {
     for (int i = 0; i < 4; i++) {
-        int min = i;
+
         for (int j = i + 1; j < 5; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
-                swap(&arr[min], &arr[i]);
+            if (arr[j] < arr[i]) {
+                swap(&arr[j], &arr[i]);
             }
         }
     }
 }
 
+
 void print(int arr[], int size) {
     for (size_t k = 0; k < 5; k++) {
-        cout << arr[k] << " ";
+        cout << arr[k] << '\n';
     }
-    cout << '\n';
 }
 
 int main(int argc, char const* argv[]) {
