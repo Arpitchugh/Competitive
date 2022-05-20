@@ -1,15 +1,40 @@
+// Insertion Sort -> swap until left element is smaller than current element
+
 #include <iostream>
 using namespace std;
 
-int main() {
-    int i[] = {1,2,34,5};
-    int* p[] = { i,i + 1,i + 2,i + 3,i + 4 };
-    cout << i << endl; // array address
-    cout << &i << endl; // array address
+void swap(int* i, int* j) {
+    int temp = *i;
+    *i = *j;
+    *j = temp;
+    cout << *i << *j;
+}
 
-    cout << p << endl; // pointer address
-    cout << *p << endl; // array address
-    cout << *(*p + 0); // array first element
+void InsertionSort(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+    {
+        int ket = arr[i];
+        for (int j = i+1; j < n; j++)
+        {
+            if (arr[i] > arr[j]) {
+                swap(&arr[i], &arr[j]);
+            }
+        }
+    }
+}
 
+void dis(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << ' ';
+    }
+    cout << endl;
+}
+
+int main(int argc, char const* argv[]) {
+    int arr[5] = { 5,4,3,2,1 };
+    int n = 5;
+
+    InsertionSort(arr, n);
+    dis(arr, n);
     return 0;
-}   
+}
