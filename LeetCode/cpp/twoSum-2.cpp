@@ -2,8 +2,7 @@
 #include<map>
 #include<vector>
 using namespace std;
-
-// return index+1 as output
+// map Solution
 
 class Solution {
 public:
@@ -15,7 +14,8 @@ public:
             if (numbers[left] + numbers[right] == target) {
                 ans.push_back(left+1);
                 ans.push_back(right+1);
-
+                // loop runs twice for some reason
+                break;
             }
             else if (numbers[left] + numbers[right] > target) right--;
             else { left++; }
@@ -28,8 +28,8 @@ public:
 int main() {
     Solution s;
     vector<int> v;
-    v = { 1,2,3,4,5,6 };
-    vector<int> result = s.twoSum(v, 11);
+    v = { 2,3,4 };
+    vector<int> result = s.twoSum(v, 6);
     for (auto i: result) {
         std::cout << i << " ";
     }
