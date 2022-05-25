@@ -34,7 +34,7 @@ int main(){
      vector<int> result= s.twoSum (v, 11);
      for(int i: result)
      {
-          cout<<i;
+          cout<<i << " ";
      }
      return 0;
 
