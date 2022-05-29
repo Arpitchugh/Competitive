@@ -14,8 +14,8 @@ public:
             if (numbers[left] + numbers[right] == target) {
                 ans.push_back(left+1);
                 ans.push_back(right+1);
-                // loop runs twice for some reason
-                break;
+                // loop runs twice if break is not included for some reason
+                // break;
             }
             else if (numbers[left] + numbers[right] > target) right--;
             else { left++; }
