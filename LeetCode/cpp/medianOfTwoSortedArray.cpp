@@ -16,29 +16,28 @@ Explanation: merged array = [1,2,3] and median is 2.
 using namespace std;
 
 double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-
-	int l = 0;
-	int r;
+	double l = 0;
+	double r;
 	// assigning r
 	if (nums1.size() < nums2.size()) { r = nums1.size() - 1; }
 	else {
 		r = nums2.size() - 1;
 	}
 
-	int total = nums1.size() + nums2.size();
-	int half = total / 2;
+	double total = nums1.size() + nums2.size();
+	double half = total / 2;
 
-	int mid1 = (l + r) / 2;
-	int mid2 = half - mid1 - 2;
+	double mid1 = (l + r) / 2;
+	double mid2 = half - mid1 - 2;
 
 
-	int aLeft = nums1[mid1];
-	int aRight = nums1[mid1 + 1];
-	int bLeft = nums2[mid2];
-	int bRight = nums2[mid2 + 1];
+	double aLeft = nums1[mid1];
+	double aRight = nums1[mid1 + 1];
+	double bLeft = nums2[mid2];
+	double bRight = nums2[mid2 + 1];
 
 	if (aLeft <= bRight && bLeft <= aRight) {
-		if (total % 2) {
+		if (total / 2 == 0) {
 			return min(aRight, bRight);
 		}
 		else {
