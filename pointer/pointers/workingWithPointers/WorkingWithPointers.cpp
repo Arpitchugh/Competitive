@@ -1,40 +1,48 @@
-// Insertion Sort -> swap until left element is smaller than current element
 
+// C++ program to find LCM of two numbers
 #include <iostream>
 using namespace std;
 
-void swap(int* i, int* j) {
-    int temp = *i;
-    *i = *j;
-    *j = temp;
-    cout << *i << *j;
+// Recursive function to return gcd of a and b
+int gcd(int a, int b)
+{
+    int result = min(a, b); // Find Minimum of a nd b
+    while (result > 0)
+    {
+        if (a % result == 0 && b % result == 0)
+        {
+            break;
+        }
+        result--;
+    }
+    return result;// return gcd of a nd b
 }
 
-void InsertionSort(int arr[], int n) {
-    for (int i = 0; i < n; i++)
+// Function to return LCM of two numbers
+int lcm(int a, int b)
+{
+    return (a / gcd(a, b)) * b;
+}
+// Driver code
+int main()
+{
+    int size;
+    cin >> size;
+
+    int arr[10];
+    int var;
+    for (int i = 0; i < size; i++)
     {
-        int ket = arr[i];
-        for (int j = i+1; j < n; j++)
-        {
-            if (arr[i] > arr[j]) {
-                swap(&arr[i], &arr[j]);
-            }
+        cin >> var;
+        arr[i] = var;
+    }
+    int ans=0;
+    for (int i = 0; i < size; i++) {
+        if (lcm(arr[i], arr[i + 1]) == gcd(arr[i], arr[i + 1])) {
+            arr[i] = arr[i]-1;
+            ans += 1;
         }
     }
-}
-
-void dis(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << ' ';
-    }
-    cout << endl;
-}
-
-int main(int argc, char const* argv[]) {
-    int arr[5] = { 5,4,3,2,1 };
-    int n = 5;
-
-    InsertionSort(arr, n);
-    dis(arr, n);
+    cout << ans;
     return 0;
 }
