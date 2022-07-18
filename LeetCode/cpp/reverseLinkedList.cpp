@@ -26,8 +26,3 @@ ListNode* reverseList(ListNode* head) {
     return pre;
 }
 
-int main(int argc, char const *argv[])
-{
-	
-	return 0;
-}
