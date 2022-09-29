@@ -35,4 +35,5 @@ var addBinary = function (a, b) {
 };
 
 const ans = addBinary('11', '1');
+const ans1 = addBinary('11', '2');
 console.log(ans);
