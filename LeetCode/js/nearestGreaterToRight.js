@@ -27,6 +27,6 @@ const removeDuplicatesUsingArray = nums => {
 	}
 };
 
-const removeDuplicatesUsingBinarySearch = nums => {
+const removeDuplicatesUsingBinarySearch = nums => {}
 
 console.log(removeDuplicates(nums));
