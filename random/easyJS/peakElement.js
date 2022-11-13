@@ -34,7 +34,7 @@ const greatestNeighboringElement = arr => {
 };
 
 class Node {
-	constructor(value){
+	constructor(value) {
 		this.value = value;
 		this.next = null;
 	}
@@ -44,22 +44,41 @@ class LinkedList {
 	constructor(head = null) {
 		this.head = head;
 	}
-	push(value) {
-		let node = new Node(value);
-		let temp = this.head;
-		if(!temp){
-			temp = node;
-		}
-		while(temp.next){
-			temp = temp.next;
-		}
-		temp.next = node;
-		
-	}
-	push_Front(value) {
+	push_At_Front(value) {
 		const node = new Node(value);
 		node.next = this.head;
 		this.head = node;
+	}
+	push_At_End(value) {
+		let node = new Node(value);
+		let temp = this.head;
+		if (!temp) {
+			temp = node;
+		}
+		while (temp.next) {
+			temp = temp.next;
+		}
+		temp.next = node;
+	}
+	push_At_Index(index, value) {
+		let node = new Node(value);
+		let temp = this.head;
+		while (index > 1) {
+			// index will be counted from 0 onwards in list
+			if (temp === null) {
+				console.error(
+					`index out of bound can't add value: ${value}, adding at last position in list`
+				);
+				this.push_At_End(value);
+				return;
+			}
+			temp = temp.next;
+			index--;
+		}
+		let c;
+		c = temp.next;
+		temp.next = node;
+		temp.next.next = c;
 	}
 	print() {
 		let list = [];
@@ -72,12 +91,10 @@ class LinkedList {
 }
 
 const linkedList1 = new LinkedList();
-linkedList1.push_Front(10)
-linkedList1.push_Front(9)
-linkedList1.push_Front(8)
-linkedList1.push(8)
-linkedList1.push(9)
-linkedList1.push(10)
+linkedList1.push_At_Front(10);
+linkedList1.push_At_End(8);
+linkedList1.push_At_End(9);
+linkedList1.push_At_Index(1, 1);
+linkedList1.push_At_Index(6, 100);
 
-
-linkedList1.print()
+linkedList1.print();
