@@ -33,4 +33,51 @@ const greatestNeighboringElement = arr => {
 	return greatestElemArr;
 };
 
-console.log(greatestNeighboringElement(arr))
+class Node {
+	constructor(value){
+		this.value = value;
+		this.next = null;
+	}
+}
+
+class LinkedList {
+	constructor(head = null) {
+		this.head = head;
+	}
+	push(value) {
+		let node = new Node(value);
+		let temp = this.head;
+		if(!temp){
+			temp = node;
+		}
+		while(temp.next){
+			temp = temp.next;
+		}
+		temp.next = node;
+		
+	}
+	push_Front(value) {
+		const node = new Node(value);
+		node.next = this.head;
+		this.head = node;
+	}
+	print() {
+		let list = [];
+		while (this.head) {
+			list.push(this.head.value);
+			this.head = this.head.next;
+		}
+		console.log(list);
+	}
+}
+
+const linkedList1 = new LinkedList();
+linkedList1.push_Front(10)
+linkedList1.push_Front(9)
+linkedList1.push_Front(8)
+linkedList1.push(8)
+linkedList1.push(9)
+linkedList1.push(10)
+
+
+linkedList1.print()
