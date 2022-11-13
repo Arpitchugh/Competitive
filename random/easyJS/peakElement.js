@@ -22,4 +22,15 @@ function greatestElementInArray(arr) {
 	return maxElement;
 }
 
-console.log(greatestElementInArray(arr))
+const greatestNeighboringElement = arr => {
+	let greatestElemArr = [];
+	for (let index = 1; index < arr.length - 1; index++) {
+		let element = arr[index];
+		if (element >= arr[index - 1] && arr[index + 1] <= element)
+			// multiple comparison with single elem can't happen in "if" -> arr[index + 1] <= element >= arr[index - 1]
+			greatestElemArr.push(element);
+	}
+	return greatestElemArr;
+};
+
+console.log(greatestNeighboringElement(arr))
