@@ -65,7 +65,7 @@ class LinkedList {
 		let temp = this.head;
 		while (index > 1) {
 			// index will be counted from 0 onwards in list
-			if (temp === null) {
+			if (temp == null) {
 				console.error(
 					`index out of bound can't add value: ${value}, adding at last position in list`
 				);
@@ -80,11 +80,17 @@ class LinkedList {
 		temp.next = node;
 		temp.next.next = c;
 	}
+	pop_At_Begin() {
+		let curr = this.head.value;
+		this.head = this.head.next;
+		return curr;
+	}
 	print() {
 		let list = [];
-		while (this.head) {
-			list.push(this.head.value);
-			this.head = this.head.next;
+		let temp = this.head;
+		while (temp) {
+			list.push(temp.value);
+			temp = temp.next;
 		}
 		console.log(list);
 	}
@@ -96,5 +102,8 @@ linkedList1.push_At_End(8);
 linkedList1.push_At_End(9);
 linkedList1.push_At_Index(1, 1);
 linkedList1.push_At_Index(6, 100);
-
+linkedList1.push_At_Front(20);
+linkedList1.push_At_End(22);
 linkedList1.print();
+let pop = linkedList1.pop_At_Begin();
+console.log(pop);
