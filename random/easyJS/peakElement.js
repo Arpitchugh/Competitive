@@ -94,6 +94,23 @@ class LinkedList {
 		temp.next = null;
 		return `${val} removed from end`;
 	}
+	pop_At_Index(index){
+		let temp = this.head;
+		let tempIndex = index;
+		while(tempIndex>2){
+			if(temp == null){
+				console.log('Index out of bound removing last element');
+				console.log(this.pop_At_End());
+				return;	
+			}
+			temp = temp.next;
+			tempIndex--;
+		}
+		let val = temp.next.value;
+		temp.next = temp.next.next;
+		return `${val} removed from index: ${index}`;
+
+	}
 	print() {
 		let list = [];
 		let temp = this.head;
@@ -107,12 +124,18 @@ class LinkedList {
 
 const linkedList1 = new LinkedList();
 linkedList1.push_At_Front(10);
+
 linkedList1.push_At_End(8);
 linkedList1.push_At_End(9);
+
 linkedList1.push_At_Index(1, 1);
 linkedList1.push_At_Index(6, 100);
+
 linkedList1.push_At_Front(20);
+
 linkedList1.push_At_End(22);
 
-// console.log(linkedList1.pop_At_Begin());
-console.log(linkedList1.pop_At_End());
+linkedList1.pop_At_Index(2);
+linkedList1.pop_At_Index(4);
+
+linkedList1.print();
