@@ -83,7 +83,16 @@ class LinkedList {
 	pop_At_Begin() {
 		let curr = this.head.value;
 		this.head = this.head.next;
-		return curr;
+		return `${curr} removed from beginning`;
+	}
+	pop_At_End(){
+		let temp = this.head;
+		while(temp.next.next){
+			temp = temp.next;
+		}
+		let val = temp.next.value;
+		temp.next = null;
+		return `${val} removed from end`;
 	}
 	print() {
 		let list = [];
@@ -104,6 +113,6 @@ linkedList1.push_At_Index(1, 1);
 linkedList1.push_At_Index(6, 100);
 linkedList1.push_At_Front(20);
 linkedList1.push_At_End(22);
-linkedList1.print();
-let pop = linkedList1.pop_At_Begin();
-console.log(pop);
+
+// console.log(linkedList1.pop_At_Begin());
+console.log(linkedList1.pop_At_End());
