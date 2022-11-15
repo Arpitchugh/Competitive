@@ -85,23 +85,23 @@ class LinkedList {
 		this.head = this.head.next;
 		return `${curr} removed from beginning`;
 	}
-	pop_At_End(){
+	pop_At_End() {
 		let temp = this.head;
-		while(temp.next.next){
+		while (temp.next.next) {
 			temp = temp.next;
 		}
 		let val = temp.next.value;
 		temp.next = null;
 		return `${val} removed from end`;
 	}
-	pop_At_Index(index){
+	pop_At_Index(index) {
 		let temp = this.head;
 		let tempIndex = index;
-		while(tempIndex>2){
-			if(temp == null){
+		while (tempIndex > 2) {
+			if (temp == null) {
 				console.log('Index out of bound removing last element');
 				console.log(this.pop_At_End());
-				return;	
+				return;
 			}
 			temp = temp.next;
 			tempIndex--;
@@ -109,7 +109,36 @@ class LinkedList {
 		let val = temp.next.value;
 		temp.next = temp.next.next;
 		return `${val} removed from index: ${index}`;
+	}
+	delete() {
+		this.head = null;
+	}
+	getNode(index) {
+		let temp = this.head;
+		while (index > 1) {
+			if (temp === null) {
+				console.log('nothing exist on the provided index');
+				return;
+			}
+			temp = temp.next;
+			index--;
+		}
+		console.log(temp.value);
+		return;
+	}
+	reverse() {
+		let prevNode = null;
+		let currentNode = this.head;
+		if (currentNode === null) return;
 
+		let nextNode;
+		while (currentNode) {
+			nextNode = currentNode.next;
+			currentNode.next = prevNode;
+			prevNode = currentNode;
+			currentNode = nextNode;
+		}
+		this.head = prevNode;
 	}
 	print() {
 		let list = [];
@@ -129,7 +158,6 @@ linkedList1.push_At_End(8);
 linkedList1.push_At_End(9);
 
 linkedList1.push_At_Index(1, 1);
-linkedList1.push_At_Index(6, 100);
 
 linkedList1.push_At_Front(20);
 
@@ -137,5 +165,10 @@ linkedList1.push_At_End(22);
 
 linkedList1.pop_At_Index(2);
 linkedList1.pop_At_Index(4);
+
+// linkedList1.getNode(3);
+// linkedList1.delete();
+
+linkedList1.reverse();
 
 linkedList1.print();
