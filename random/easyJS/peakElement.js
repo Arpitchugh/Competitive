@@ -85,6 +85,11 @@ class LinkedList {
 		temp.next = node;
 		temp.next.next = c;
 	}
+	push_Multiple_Values(arr) {
+		arr.forEach(element => {
+			this.push_At_End(element);
+		});
+	}
 	pop_At_Begin() {
 		let curr = this.head.value;
 		this.head = this.head.next;
