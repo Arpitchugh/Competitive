@@ -10,6 +10,8 @@
  * * using "0" in front of number converts it into octet for and using "0x" converts it into hexadecimal
  * console.log(0x20)
  */
+
+//SECTION - peak in array
 let arr = [1, 3, 2, 5, 3, 7, 8];
 let arr1 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1];
@@ -33,6 +35,7 @@ const greatestNeighboringElement = arr => {
 	return greatestElemArr;
 };
 
+// SECTION - linkedList
 class Node {
 	constructor(value) {
 		this.value = value;
@@ -44,10 +47,12 @@ class LinkedList {
 	constructor(head = null) {
 		this.head = head;
 	}
+
 	push_At_Front(value) {
 		const node = new Node(value);
 		node.next = this.head;
 		this.head = node;
+		return this.head;
 	}
 	push_At_End(value) {
 		let node = new Node(value);
@@ -114,6 +119,7 @@ class LinkedList {
 		this.head = null;
 	}
 	getNode(index) {
+		let i = index;
 		let temp = this.head;
 		while (index > 1) {
 			if (temp === null) {
@@ -123,7 +129,7 @@ class LinkedList {
 			temp = temp.next;
 			index--;
 		}
-		console.log(temp.value);
+		console.log(`node at index '${i}' is ${temp.value}`);
 		return;
 	}
 	reverse() {
@@ -147,28 +153,65 @@ class LinkedList {
 			list.push(temp.value);
 			temp = temp.next;
 		}
+		console.log(`printing complete list: [${list}]`);
 		console.log(list);
+	}
+
+	peakElementInLinkedList() {
+		let tempHead = this.head;
+		let peak = 0;
+		while (tempHead) {
+			if (tempHead.value > peak) peak = tempHead.value;
+			tempHead = tempHead.next;
+		}
+		console.log(`peak element in the list is ${peak}`);
+		return peak;
 	}
 }
 
-const linkedList1 = new LinkedList();
-linkedList1.push_At_Front(10);
+// const linkedList1 = new LinkedList();
+// linkedList1.push_At_Front(10);
 
-linkedList1.push_At_End(8);
-linkedList1.push_At_End(9);
+// linkedList1.push_At_End(8);
+// linkedList1.push_At_End(9);
 
-linkedList1.push_At_Index(1, 1);
+// linkedList1.push_At_Index(1, 1);
 
-linkedList1.push_At_Front(20);
+// linkedList1.push_At_Front(20);
 
-linkedList1.push_At_End(22);
+// linkedList1.push_At_End(22);
+// linkedList1.push_At_End(44);
+// linkedList1.push_At_End(2);
 
-linkedList1.pop_At_Index(2);
-linkedList1.pop_At_Index(4);
+// linkedList1.pop_At_Index(2);
+// linkedList1.pop_At_Index(4);
 
 // linkedList1.getNode(3);
 // linkedList1.delete();
 
-linkedList1.reverse();
+// linkedList1.reverse();
+// linkedList1.peakElementInLinkedList();
+// linkedList1.print();
 
-linkedList1.print();
+// SECTION -  2D array
+let Array2D = [
+	['arpit', 2, 3],
+	[5, 6, 7],
+	[4, 5, 6],
+];
+const peakElementIn2DArray = arr => {
+	let peakIn2D = 0;
+	for (let indexOf1D = 0; indexOf1D < arr.length; indexOf1D++) {
+		for (
+			let indexof2D = 0;
+			indexof2D < arr[indexOf1D].length;
+			indexof2D++
+		) {
+			if (peakIn2D < arr[indexOf1D][indexof2D])
+				peakIn2D = arr[indexOf1D][indexof2D];
+		}
+	}
+	return peakIn2D;
+};
+
+console.log(peakElementIn2DArray(Array2D));
