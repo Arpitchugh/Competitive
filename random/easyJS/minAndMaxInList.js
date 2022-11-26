@@ -52,7 +52,11 @@ class LinkedList {
 	push(value) {
 		let node = new Node(value);
 		let temp = this.head;
-		while (temp.next) {
+		if (!temp) {
+			this.head = node;
+			return;
+		}
+		while (temp && temp.next) {
 			temp = temp.next;
 		}
 		temp.next = node;
@@ -69,9 +73,21 @@ class LinkedList {
 			this.push(element);
 		});
 	}
-	minAndMaxInLinkedList() {}
+	minAndMaxInLinkedList() {
+		let temp = this.head;
+		let min = this.head.value;
+		let max = this.head.value;
+		while (temp) {
+			if (temp.value < min) min = temp.value;
+			if (temp.value > max) max = temp.value;
+			temp = temp.next;
+		}
+		console.log([min, max]);
+	}
 }
 
-let list = new LinkedList(new Node(1));
-list.pushMultiple([2, 3, 4, 5, 6, 8, , 7, 19, 90, 9, 10]);
+let list = new LinkedList();
+list.push(3);
+list.pushMultiple([3, 4, 5, 6, 8, 69, 7, 19, 90, 9, 10]);
+list.minAndMaxInLinkedList();
 list.print();
